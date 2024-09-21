@@ -8,10 +8,14 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { getApiAppTestUserId, postApiAppTestWithError } from '~/src/client'
 
 definePageMeta({
     layout: "default"
 })
+
+getApiAppTestUserId().then(console.log).catch(console.log);
+postApiAppTestWithError({ query: { username: "Hero" } }).then(console.log).catch(console.log);
 </script>
 
 <template>

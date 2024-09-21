@@ -16,5 +16,11 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: ""
+  },
+  runtimeConfig: {
+    app: {
+      baseURL: '',
+      apiURL: '' 
+    }
   }
 })

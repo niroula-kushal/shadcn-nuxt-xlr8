@@ -7,9 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "openapi-ts": "openapi-ts"
   },
   "dependencies": {
+    "@hey-api/client-axios": "^0.2.4",
+    "@hey-api/client-fetch": "^0.3.1",
     "@radix-icons/vue": "^1.0.0",
     "@unovis/ts": "1.4.3-beta.0",
     "@unovis/vue": "1.4.3-beta.0",
@@ -34,6 +37,7 @@
   },
   "packageManager": "pnpm@8.8.0+sha1.9922e8b650d393700209ccd81e0ebdbcbe43b0d3",
   "devDependencies": {
+    "@hey-api/openapi-ts": "^0.53.2",
     "@iconify-json/radix-icons": "^1.2.0",
     "@iconify/vue": "^4.1.2",
     "@nuxtjs/color-mode": "^3.4.4",
