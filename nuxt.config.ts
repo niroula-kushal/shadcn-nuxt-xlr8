@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/color-mode'],
@@ -20,7 +21,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     app: {
       baseURL: '',
-      apiURL: '' 
+      apiURL: '',
+    },
+    public: {
+      baseURL: "",
+      oidcIssuer: '',
+      oidcClientId: '',
     }
   }
 })

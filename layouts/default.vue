@@ -71,7 +71,14 @@
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                        <DropdownMenuLabel>
+                            <span v-if="user == null">
+                                Not Logged In
+                            </span>
+                            <span v-else>
+                                {{ user.profile.preferred_username }}
+                            </span>
+                        </DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>Settings</DropdownMenuItem>
                         <DropdownMenuItem>Support</DropdownMenuItem>
@@ -86,3 +93,8 @@
         </main>
     </div>
 </template>
+
+<script setup>
+const { getUser } = useAuth();
+const user = getUser();
+</script>

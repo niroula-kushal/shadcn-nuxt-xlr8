@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { getApiAppTestUserId, postApiAppTestWithError } from '~/src/client'
+import useOidcLoginManager from '~/composables/useOidcLoginManager'
 
 definePageMeta({
     layout: "default"
@@ -16,6 +17,10 @@ definePageMeta({
 
 getApiAppTestUserId().then(console.log).catch(console.log);
 postApiAppTestWithError({ query: { username: "Hero" } }).then(console.log).catch(console.log);
+const auth = useOidcLoginManager();
+const trySignIn = () => {
+    auth.login();
+};
 </script>
 
 <template>
@@ -35,6 +40,9 @@ postApiAppTestWithError({ query: { username: "Hero" } }).then(console.log).catch
                     <p class="text-xs text-muted-foreground">
                         +20.1% from last month
                     </p>
+                    <Button @click="trySignIn">
+                        Login
+                    </Button>
                 </CardContent>
             </Card>
             <Card>

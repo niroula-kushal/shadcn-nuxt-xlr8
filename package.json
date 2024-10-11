@@ -23,6 +23,7 @@
     "embla-carousel-vue": "^8.2.1",
     "lucide-vue-next": "^0.439.0",
     "nuxt": "^3.13.0",
+    "oidc-client-ts": "^3.1.0",
     "radix-vue": "^1.9.5",
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.2",

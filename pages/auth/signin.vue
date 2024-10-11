@@ -3,6 +3,21 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+
+const username = ref("");
+const password = ref("");
+
+const performSignIn = async () => {
+  // if(!username.value || !password.value)
+  // {
+  //   alert("Please input username/password");
+  //   return; 
+  // }
+  // const result = await signIn({
+  //   username: username.value,
+  //   password: password.value
+  // }, { callbackUrl: 'http://localhost:3000' });
+};
 </script>
 
 <template>
@@ -24,6 +39,7 @@ import { Label } from '@/components/ui/label'
             type="email"
             placeholder="m@example.com"
             required
+            v-model="username"
           />
         </div>
         <div class="grid gap-2">
@@ -33,13 +49,10 @@ import { Label } from '@/components/ui/label'
               Forgot your password?
             </a>
           </div>
-          <Input id="password" type="password" required />
+          <Input id="password" type="password" required v-model="password"/>
         </div>
-        <Button type="submit" class="w-full">
+        <Button type="submit" class="w-full" @click.prevent="performSignIn">
           Login
-        </Button>
-        <Button variant="outline" class="w-full">
-          Login with Google
         </Button>
       </div>
       <div class="mt-4 text-center text-sm">
