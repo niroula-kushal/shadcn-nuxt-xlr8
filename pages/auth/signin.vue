@@ -4,19 +4,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
+definePageMeta({
+  allowAnonymous: true
+});
+
 const username = ref("");
 const password = ref("");
-
+const oidcManager = useOidcLoginManager();
+const authStore = useAuthStore();
 const performSignIn = async () => {
-  // if(!username.value || !password.value)
-  // {
-  //   alert("Please input username/password");
-  //   return; 
-  // }
-  // const result = await signIn({
-  //   username: username.value,
-  //   password: password.value
-  // }, { callbackUrl: 'http://localhost:3000' });
+  const response = await authStore.tryLogin({
+    username: username.value,
+    password: password.value
+  });
+  if(typeof response === 'string') {
+    alert(response);
+  }
 };
 </script>
 

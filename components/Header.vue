@@ -70,7 +70,7 @@
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                    <DropdownMenuItem v-if="store.user == null" @click="tryLogin">
+                    <DropdownMenuItem v-if="store.user == null" @click="tryLoginV2">
                         Login
                     </DropdownMenuItem>
                     <template v-else>
@@ -99,7 +99,9 @@ function tryLogin() {
     oidcManager.login();
 }
 function logout() {
-    store.setUser(null);
-    oidcManager.logout();
+    store.tryLogout();
+}
+function tryLoginV2() {
+    navigateTo("/auth/signin");
 }
 </script>
