@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from 'lucide-vue-next'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Activity, ArrowUpRight, CreditCard, DollarSign, Users } from 'lucide-vue-next'
 import { getApiAppTestUserId, postApiAppTestWithError } from '~/src/client'
-import useOidcLoginManager from '~/composables/useOidcLoginManager'
 
 definePageMeta({
     layout: "default"
@@ -17,10 +13,7 @@ definePageMeta({
 
 getApiAppTestUserId().then(console.log).catch(console.log);
 postApiAppTestWithError({ query: { username: "Hero" } }).then(console.log).catch(console.log);
-const auth = useOidcLoginManager();
-const trySignIn = () => {
-    auth.login();
-};
+
 </script>
 
 <template>
@@ -40,9 +33,6 @@ const trySignIn = () => {
                     <p class="text-xs text-muted-foreground">
                         +20.1% from last month
                     </p>
-                    <Button @click="trySignIn">
-                        Login
-                    </Button>
                 </CardContent>
             </Card>
             <Card>
