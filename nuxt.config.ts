@@ -3,7 +3,13 @@ export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    'shadcn-nuxt', 
+    '@nuxtjs/color-mode', 
+    '@pinia/nuxt', 
+    'pinia-plugin-persistedstate/nuxt'
+  ],
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -28,5 +34,11 @@ export default defineNuxtConfig({
       oidcIssuer: '',
       oidcClientId: '',
     }
-  }
+  },
+  piniaPluginPersistedstate: {
+    key: 'cs_%id_persisted',
+    auto: true,
+    debug: true,
+    storage: "localStorage"
+  },
 })

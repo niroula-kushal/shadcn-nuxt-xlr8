@@ -5,14 +5,15 @@
 </template>
 <script setup lang="ts">
 import { client } from './src/client';
+import { useAuthStore } from './stores/useAuthStore';
 const config = useRuntimeConfig();
 client.setConfig({
   baseURL: config.app.apiURL
 });
 client.instance.interceptors.request.use(req => {  
-  const { user } = useAuth();
-  if(user.value != null) {
-    req.headers["Authorization"] = "Bearer " + user.value.access_token;
+  const authStore = useAuthStore();
+  if(authStore.user != null) {
+    req.headers["Authorization"] = "Bearer " + authStore.user.access_token;
   }
   return req;
 });

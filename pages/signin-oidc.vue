@@ -5,8 +5,9 @@
 </template>
 <script setup>
 import useOidcLoginManager from '~/composables/useOidcLoginManager';
+import { useAuthStore } from '~/stores/useAuthStore';
 const { userManager, getUser }  = useOidcLoginManager();
-const auth = useAuth();
+const auth = useAuthStore();
 userManager.signinCallback().then(user => {
     auth.setUser(user)
 }).finally(() => {
